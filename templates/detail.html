@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>DONews</title>
+    <title>{{ news.title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -14,18 +14,16 @@
         </nav>
     </header>
     <main>
-        <section id="news">
-            {% for item in news %}
-            <div class="news-item" onclick="location.href='{{ url_for('detail', news_id=loop.index) }}';">
-                <h2>{{ item.title }}</h2>
-                <p>{{ item.content }}</p>
-                <input class="emoji-input" type="text" value="{{ item.emoji }}">
-            </div>
-            {% endfor %}
+        <section id="news-detail">
+            <h2>{{ news.title }}</h2>
+            <p>{{ news.content }}</p>
+            <input class="emoji-input" type="text" value="{{ news.emoji }}">
+            <p>Опубликовано: {{ timestamp }}</p>
+            <p>Автор: {{ author }}</p>
         </section>
     </main>
     <footer>
-        <p>© 2024 DONews</p>
+        <p>© 2023 DONews</p>
     </footer>
 </body>
 </html>

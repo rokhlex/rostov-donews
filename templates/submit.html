@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Опубликовать новость</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='DONews.png') }}" alt="DONews" width="100">
+        <nav>
+            <a href="{{ url_for('index') }}">Главная</a>
+            <a href="{{ url_for('submit') }}">Опубликовать новость</a>
+        </nav>
+    </header>
+    <main>
+        <form action="{{ url_for('submit') }}" method="post">
+            <label for="title">Заголовок:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="content">Текст новости:</label>
+            <textarea id="content" name="content" required></textarea>
+            <label for="author">Имя автора:</label>
+            <input type="text" id="author" name="author" required>
+            <input type="password" id="password" name="password" placeholder="Пароль (donews-password)" required>
+            <button type="submit">Опубликовать</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2024 DONews</p>
+    </footer>
+</body>
+</html>
